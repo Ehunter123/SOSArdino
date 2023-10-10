@@ -1,15 +1,22 @@
-int pinnumber=13; 
+#include <Servo.h> 
+
+Servo myServo;
 
 void setup() {
+  // put your setup code here, to run once:
+  pinMode(LED_BUILTIN, OUTPUT);
+	myServo.attach(11); 
+	myServo.write(90);
+}
 
-pinMode(pinnumber,OUTPUT);
+
+void blinkOnce(int time){ 
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(time);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(time);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-digitalWrite(pinnumber, 1);
-delay(500);
-digitalWrite(pinnumber, 0);
-delay(1000);
-
+  blinkOnce(1000); 
 }
